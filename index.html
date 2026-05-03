@@ -19,20 +19,30 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Music Player - BUG FIX: Animasi dipisah rapih -->
+    <!-- Music Player - Design mirip referensi foto -->
     <div class="music-player" id="musicPlayer">
-        <button class="music-toggle" id="musicToggle">
-            <i class="fas fa-music"></i>
-            <div class="music-waves">
-                <span class="music-wave"></span>
-                <span class="music-wave"></span>
-                <span class="music-wave"></span>
+        <div class="music-pill" id="musicPill">
+            <div class="music-icon-wrap">
+                <div class="music-icon-circle" id="musicIconCircle">
+                    <i class="fas fa-compact-disc" id="musicIcon"></i>
+                </div>
             </div>
-        </button>
+            <div class="music-text-wrap">
+                <span class="music-label" id="musicLabel">PLAY</span>
+                <span class="music-song-title" id="musicSongTitle">Lofi Study</span>
+            </div>
+        </div>
+
+        <!-- Panel kontrol yang muncul saat diklik -->
         <div class="music-panel" id="musicPanel">
-            <div class="music-info">
-                <span class="music-title">Lofi Study</span>
-                <span class="music-status" id="musicStatus">Click to play</span>
+            <div class="music-panel-header">
+                <div class="music-panel-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="music-panel-info">
+                    <span class="music-panel-title" id="panelTitle">Lofi Study</span>
+                    <span class="music-panel-status" id="panelStatus">Click to play</span>
+                </div>
             </div>
             <div class="music-visualizer">
                 <div class="visualizer-bar"></div>
@@ -85,7 +95,7 @@
         <div class="hero-bg-image"></div>
         <div class="hero-overlay"></div>
         <div class="hero-particles" id="heroParticles"></div>
-        
+
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-star"></i> Kelas 10 PPLG 1
@@ -106,7 +116,7 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- Scroll Indicator -->
         <div class="scroll-indicator-wrapper">
             <div class="scroll-indicator">
@@ -120,7 +130,7 @@
 
     <!-- Stacking Sections -->
     <div class="stack-container">
-        
+
         <!-- About Section -->
         <section class="stack-section about-section" id="about">
             <div class="stack-inner">
@@ -166,7 +176,7 @@
             </div>
         </section>
 
-        <!-- Stats Section - PRESTASI 0, PROJEK COMING SOON -->
+        <!-- Stats Section - HARI BERSAMA dihitung dari tahun lalu (kelas 10) -->
         <section class="stack-section stats-section" id="stats">
             <div class="stack-inner">
                 <div class="container">
@@ -190,6 +200,11 @@
                             <div class="stat-icon"><i class="fas fa-trophy"></i></div>
                             <div class="stat-number" data-target="0">0</div>
                             <div class="stat-label">Prestasi</div>
+                        </div>
+                        <div class="stat-item scroll-reveal" data-delay="400">
+                            <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                            <div class="stat-number" id="hariBersama" data-target="0">0</div>
+                            <div class="stat-label">Hari Bersama</div>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // LOADER
     const loader = document.getElementById('loader');
     window.addEventListener('load', () => {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // BOTTOM TABS ACTIVE STATE
     const bottomTabs = document.querySelectorAll('.bottom-tab');
     const allSections = document.querySelectorAll('section[id]');
-    
+
     function updateActiveState() {
         let current = '';
         allSections.forEach(section => {
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     window.addEventListener('scroll', updateActiveState);
 
     // BACK TO TOP
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // HIDE BOTTOM TABS ON SCROLL DOWN
     let lastScroll = 0;
     const bottomTabsContainer = document.getElementById('bottomTabs');
-    
+
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         if (currentScroll > lastScroll && currentScroll > 300) {
@@ -104,8 +104,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     scrollRevealElements.forEach(el => revealObserver.observe(el));
 
-    // COUNTER
+    // COUNTER - termasuk Hari Bersama yang dihitung otomatis
     const statNumbers = document.querySelectorAll('.stat-number');
+
+    // Hitung hari bersama dari awal kelas 10 (tahun lalu, Juli 2025)
+    function hitungHariBersama() {
+        const mulaiKelas10 = new Date('2025-07-15'); // Asumsi masuk kelas 10 pertengahan Juli 2025
+        const sekarang = new Date();
+        const diffTime = Math.abs(sekarang - mulaiKelas10);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays;
+    }
+
+    const hariBersamaEl = document.getElementById('hariBersama');
+    if (hariBersamaEl) {
+        const hariBersama = hitungHariBersama();
+        hariBersamaEl.setAttribute('data-target', hariBersama);
+    }
+
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -144,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // LIGHTBOX
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    
+
     window.openLightbox = function(element) {
         lightboxImg.src = element.querySelector('img').src;
         lightbox.classList.add('active');
@@ -158,75 +174,130 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape') closeLightbox();
     });
 
-    // MUSIC PLAYER
-    const musicToggle = document.getElementById('musicToggle');
+    // MUSIC PLAYER - Menggunakan file lokal dari folder music/
+    const musicPill = document.getElementById('musicPill');
     const musicPanel = document.getElementById('musicPanel');
     const playBtn = document.getElementById('playBtn');
-    const musicStatus = document.getElementById('musicStatus');
+    const musicSongTitle = document.getElementById('musicSongTitle');
+    const panelTitle = document.getElementById('panelTitle');
+    const panelStatus = document.getElementById('panelStatus');
     const bgMusic = document.getElementById('bgMusic');
     const volumeSlider = document.getElementById('volumeSlider');
-    const musicPlayer = document.getElementById('musicPlayer');
-    
+    const musicIcon = document.getElementById('musicIcon');
+
     let isPlaying = false;
+
+    // Daftar lagu dari folder lokal music/
     const songs = [
-        { title: 'Lofi Study', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
-        { title: 'Coding Vibes', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
-        { title: 'Focus Mode', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
-        { title: 'Chill Beats', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' }
+        { title: 'Lofi Study', src: 'music/lofi-study.mp3' },
+        { title: 'Coding Vibes', src: 'music/coding-vibes.mp3' },
+        { title: 'Focus Mode', src: 'music/focus-mode.mp3' },
+        { title: 'Chill Beats', src: 'music/chill-beats.mp3' }
     ];
     let currentSong = 0;
 
     bgMusic.volume = 0.5;
 
-    musicToggle.addEventListener('click', (e) => {
+    // Toggle panel saat pill diklik
+    musicPill.addEventListener('click', (e) => {
         e.stopPropagation();
         musicPanel.classList.toggle('active');
     });
 
+    // Tutup panel saat klik di luar
     document.addEventListener('click', (e) => {
-        if (!musicPlayer.contains(e.target)) musicPanel.classList.remove('active');
+        if (!document.getElementById('musicPlayer').contains(e.target)) {
+            musicPanel.classList.remove('active');
+        }
     });
 
     musicPanel.addEventListener('click', (e) => e.stopPropagation());
 
     function togglePlay() {
-        if (isPlaying) bgMusic.pause();
-        else bgMusic.play().catch(() => musicStatus.textContent = 'Click to play');
+        if (isPlaying) {
+            bgMusic.pause();
+        } else {
+            bgMusic.play().catch(err => {
+                console.log('Audio play failed:', err);
+                panelStatus.textContent = 'Click to play';
+            });
+        }
     }
 
     playBtn.addEventListener('click', togglePlay);
 
-    bgMusic.addEventListener('play', () => { isPlaying = true; updateMusicUI(); });
-    bgMusic.addEventListener('pause', () => { isPlaying = false; updateMusicUI(); });
-    bgMusic.addEventListener('ended', () => document.getElementById('nextBtn').click());
+    bgMusic.addEventListener('play', () => { 
+        isPlaying = true; 
+        updateMusicUI(); 
+    });
+
+    bgMusic.addEventListener('pause', () => { 
+        isPlaying = false; 
+        updateMusicUI(); 
+    });
+
+    bgMusic.addEventListener('ended', () => {
+        document.getElementById('nextBtn').click();
+    });
+
+    bgMusic.addEventListener('error', (e) => {
+        console.log('Audio error:', e);
+        panelStatus.textContent = 'File not found';
+        isPlaying = false;
+        updateMusicUI();
+    });
 
     document.getElementById('prevBtn').addEventListener('click', () => {
         currentSong = (currentSong - 1 + songs.length) % songs.length;
         loadSong();
     });
+
     document.getElementById('nextBtn').addEventListener('click', () => {
         currentSong = (currentSong + 1) % songs.length;
         loadSong();
     });
 
     function loadSong() {
+        const wasPlaying = isPlaying;
         bgMusic.src = songs[currentSong].src;
-        document.querySelector('.music-title').textContent = songs[currentSong].title;
-        if (isPlaying) bgMusic.play().catch(() => {});
+        musicSongTitle.textContent = songs[currentSong].title;
+        panelTitle.textContent = songs[currentSong].title;
+
+        if (wasPlaying) {
+            bgMusic.play().catch(() => {
+                panelStatus.textContent = 'Click to play';
+            });
+        }
     }
 
-    volumeSlider.addEventListener('input', (e) => bgMusic.volume = e.target.value / 100);
+    volumeSlider.addEventListener('input', (e) => {
+        bgMusic.volume = e.target.value / 100;
+    });
 
     function updateMusicUI() {
         const icon = playBtn.querySelector('i');
-        icon.classList.toggle('fa-play', !isPlaying);
-        icon.classList.toggle('fa-pause', isPlaying);
-        musicStatus.textContent = isPlaying ? 'Playing' : 'Paused';
-        musicToggle.classList.toggle('playing', isPlaying);
-        musicPanel.classList.toggle('playing', isPlaying);
+
+        if (isPlaying) {
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+            musicSongTitle.textContent = songs[currentSong].title;
+            panelStatus.textContent = 'Now Playing';
+            musicPill.classList.add('playing');
+            musicPanel.classList.add('playing');
+            musicIcon.classList.remove('fa-compact-disc');
+            musicIcon.classList.add('fa-pause');
+        } else {
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+            panelStatus.textContent = 'Paused';
+            musicPill.classList.remove('playing');
+            musicPanel.classList.remove('playing');
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-compact-disc');
+        }
     }
 
-    // Auto-play on first interaction
+    // Auto-play on first interaction (browser policy)
     let autoPlayAttempted = false;
     function attemptAutoPlay() {
         if (!autoPlayAttempted) {
@@ -234,9 +305,13 @@ document.addEventListener('DOMContentLoaded', function() {
             bgMusic.play().then(() => {
                 isPlaying = true;
                 updateMusicUI();
-            }).catch(() => {});
+            }).catch(() => {
+                // Browser blocked autoplay, tunggu user interaction
+                panelStatus.textContent = 'Click to play';
+            });
         }
     }
+
     document.addEventListener('click', attemptAutoPlay, { once: true });
     document.addEventListener('scroll', attemptAutoPlay, { once: true });
     document.addEventListener('touchstart', attemptAutoPlay, { once: true });
@@ -299,4 +374,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // CONSOLE EASTER EGG
     console.log('%c 10 PPLG 1 ', 'background: linear-gradient(135deg, #008B8B, #00CED1); color: #fff; font-size: 24px; font-weight: bold; padding: 10px 20px; border-radius: 10px;');
     console.log('%cSMK Negeri 1 Kota Gorontalo', 'color: #008B8B; font-size: 14px;');
+    console.log('%cHari Bersama: ' + hitungHariBersama() + ' hari', 'color: #00CED1; font-size: 12px;');
 });
