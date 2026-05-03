@@ -130,6 +130,230 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* Responsive */
+
+.creator-note {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.creator-note i {
+    color: var(--toska-primary);
+    font-size: 0.8rem;
+}
+
+
+/* ============================================
+   PAGE SYSTEM - Single Page App feel
+   ============================================ */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding-top: 80px;
+    animation: fadeIn 0.4s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-header {
+    padding: 40px 0 20px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--gray-50), var(--white));
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.page-header .section-tag {
+    margin-bottom: 10px;
+}
+
+.page-header .section-title {
+    margin-bottom: 8px;
+}
+
+.page-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin: 30px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-section-title i {
+    color: var(--toska-primary);
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   PIKET SECTION - Jadwal Piket Keren
+   ============================================ */
+.piket-wrapper {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.piket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.piket-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.piket-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--toska-primary), var(--toska-light));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.piket-card:hover::before {
+    transform: scaleX(1);
+}
+
+.piket-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.piket-card.weekend {
+    background: linear-gradient(135deg, var(--gray-50), var(--white));
+    border-style: dashed;
+}
+
+.piket-card.weekend::before {
+    background: linear-gradient(90deg, var(--gray-400), var(--gray-500));
+}
+
+.piket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.piket-day {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+}
+
+.piket-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(0, 139, 139, 0.1), rgba(0, 206, 209, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--toska-primary);
+    font-size: 1rem;
+}
+
+.piket-card.weekend .piket-icon {
+    background: linear-gradient(135deg, rgba(100, 100, 100, 0.1), rgba(150, 150, 150, 0.1));
+    color: var(--gray-500);
+}
+
+.piket-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.piket-members.center {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.piket-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--white);
+    border: 2px solid var(--white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.piket-avatar.large {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+
+.piket-card:hover .piket-avatar {
+    transform: scale(1.1);
+}
+
+.piket-names {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+.piket-names.weekend-text {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-500);
+}
+
+/* Bottom Tabs Update */
+.bottom-tab {
+    cursor: pointer;
+}
+
+/* Responsive for pages */
+@media (max-width: 768px) {
+    .page {
+        padding-top: 70px;
+    }
+
+    .page-header {
+        padding: 30px 0 15px;
+    }
+
+    .piket-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .piket-card {
+        padding: 20px;
+    }
+}
+
+
 @media (max-width: 768px) {
     .teacher-section {
         padding: 60px 0;

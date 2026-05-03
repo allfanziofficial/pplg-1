@@ -34,35 +34,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // BOTTOM TABS ACTIVE STATE
+    // PAGE SYSTEM - SPA Navigation
+    const pages = document.querySelectorAll('.page');
     const bottomTabs = document.querySelectorAll('.bottom-tab');
-    const allSections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    function updateActiveState() {
-        let current = '';
-        allSections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (scrollY >= sectionTop - 300) {
-                current = section.getAttribute('id');
-            }
+    function showPage(pageId) {
+        // Hide all pages
+        pages.forEach(page => {
+            page.classList.remove('active');
         });
 
+        // Show target page
+        const targetPage = document.getElementById('page-' + pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Update bottom tabs
         bottomTabs.forEach(tab => {
             tab.classList.remove('active');
-            if (tab.getAttribute('data-section') === current) {
+            if (tab.getAttribute('data-page') === pageId) {
                 tab.classList.add('active');
             }
         });
 
-        document.querySelectorAll('.nav-link').forEach(link => {
+        // Update nav links
+        navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
+            if (link.getAttribute('data-page') === pageId) {
                 link.classList.add('active');
             }
         });
+
+        // Close mobile menu if open
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     }
 
-    window.addEventListener('scroll', updateActiveState);
+    // Bottom tabs click
+    bottomTabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = tab.getAttribute('data-page');
+            showPage(pageId);
+        });
+    });
+
+    // Nav links click
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = link.getAttribute('data-page');
+            showPage(pageId);
+        });
+    });
+
+    // Hero buttons click
+    document.querySelectorAll('.hero-buttons a[data-page]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = btn.getAttribute('data-page');
+            showPage(pageId);
+        });
+    });
+
+    // Footer links click
+    document.querySelectorAll('.footer-links a[data-page]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const pageId = link.getAttribute('data-page');
+            showPage(pageId);
+        });
+    });
 
     // BACK TO TOP
     const backToTop = document.getElementById('backToTop');
@@ -202,9 +247,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Daftar lagu dari folder lokal music/
     const songs = [
-        { title: 'Tie Me Down ', src: 'music/lofi-study.mp3' },
-        { title: 'Curi Curi Pandang', src: 'music/coding-vibes.mp3' },
-        { title: 'Dj Classic Afters', src: 'music/focus-mode.mp3' },
+        { title: 'Lofi Study', src: 'music/lofi-study.mp3' },
+        { title: 'Coding Vibes', src: 'music/coding-vibes.mp3' },
+        { title: 'Focus Mode', src: 'music/focus-mode.mp3' },
         { title: 'Chill Beats', src: 'music/chill-beats.mp3' }
     ];
     let currentSong = 0;

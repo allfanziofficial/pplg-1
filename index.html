@@ -19,7 +19,7 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Music Player - Design mirip referensi foto -->
+    <!-- Music Player -->
     <div class="music-player" id="musicPlayer">
         <div class="music-pill" id="musicPill">
             <div class="music-icon-wrap">
@@ -32,13 +32,9 @@
                 <span class="music-song-title" id="musicSongTitle">Lofi Study</span>
             </div>
         </div>
-
-        <!-- Panel kontrol yang muncul saat diklik -->
         <div class="music-panel" id="musicPanel">
             <div class="music-panel-header">
-                <div class="music-panel-icon">
-                    <i class="fas fa-music"></i>
-                </div>
+                <div class="music-panel-icon"><i class="fas fa-music"></i></div>
                 <div class="music-panel-info">
                     <span class="music-panel-title" id="panelTitle">Lofi Study</span>
                     <span class="music-panel-status" id="panelStatus">Click to play</span>
@@ -60,15 +56,12 @@
         </div>
     </div>
 
-    <!-- Musik dari folder lokal -->
     <audio id="bgMusic" loop>
         <source src="music/lofi-study.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -77,11 +70,11 @@
             <span class="logo-text">10 PPLG 1</span>
         </div>
         <ul class="nav-menu" id="navMenu">
-            <li><a href="#home" class="nav-link">Beranda</a></li>
-            <li><a href="#about" class="nav-link">Tentang</a></li>
-            <li><a href="#schedule" class="nav-link">Jadwal</a></li>
-            <li><a href="#members" class="nav-link">Anggota</a></li>
-            <li><a href="#gallery" class="nav-link">Galeri</a></li>
+            <li><a href="#" class="nav-link" data-page="home">Beranda</a></li>
+            <li><a href="#" class="nav-link" data-page="about">Tentang</a></li>
+            <li><a href="#" class="nav-link" data-page="schedule">Jadwal</a></li>
+            <li><a href="#" class="nav-link" data-page="members">Anggota</a></li>
+            <li><a href="#" class="nav-link" data-page="gallery">Galeri</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
             <span class="bar"></span>
@@ -90,321 +83,389 @@
         </div>
     </nav>
 
-    <!-- Hero Section dengan background lokal -->
-    <section class="hero" id="home">
-        <div class="hero-bg-image"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-particles" id="heroParticles"></div>
-
-                <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-star"></i> Kelas 10 PPLG 1
-            </div>
-            <h1 class="hero-title">
-                <span class="title-line main-title" data-text="X PPLG 1">X PPLG 1</span>
-            </h1>
-            <p class="hero-subtitle">Rekayasa Perangkat Lunak dan Gim</p>
-            <div class="hero-stats-row">
-                <div class="hero-stat-box">
-                    <span class="hero-stat-num" id="heroSiswa">30</span>
-                    <span class="hero-stat-label">SISWA</span>
-                </div>
-                <div class="hero-stat-box">
-                    <span class="hero-stat-num" id="heroHariBersama">0</span>
-                    <span class="hero-stat-label">HARI BERSAMA</span>
-                </div>
-            </div>
-            <p class="hero-desc">
-                SMK Negeri 1 Kota Gorontalo
-            </p>
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary magnetic-btn">
-                    <i class="fas fa-rocket"></i> Jelajahi
-                </a>
-                <a href="#members" class="btn btn-secondary magnetic-btn">
-                    <i class="fas fa-users"></i> Anggota Kelas
-                </a>
-            </div>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator-wrapper">
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
-                <span class="scroll-text">Scroll ke bawah</span>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Stacking Sections -->
-    <div class="stack-container">
-
-        <!-- About Section -->
-        <section class="stack-section about-section" id="about">
-            <div class="stack-inner">
-                <div class="container">
-                    <div class="section-header scroll-reveal">
-                        <span class="section-tag">Tentang Kami</span>
-                        <h2 class="section-title">Apa itu <span class="text-toska">PPLG?</span></h2>
-                        <p class="section-subtitle">Jurusan yang bikin kamu jadi programmer handal</p>
+    <!-- ==================== PAGE: HOME ==================== -->
+    <div class="page active" id="page-home">
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="hero-bg-image"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-star"></i> Kelas 10 PPLG 1</div>
+                <h1 class="hero-title"><span class="title-line main-title" data-text="X PPLG 1">X PPLG 1</span></h1>
+                <p class="hero-subtitle">Rekayasa Perangkat Lunak dan Gim</p>
+                <div class="hero-stats-row">
+                    <div class="hero-stat-box">
+                        <span class="hero-stat-num" id="heroSiswa">30</span>
+                        <span class="hero-stat-label">SISWA</span>
                     </div>
-                    <div class="about-grid">
-                        <div class="about-card scroll-reveal" data-delay="100">
-                            <div class="card-icon"><i class="fas fa-code"></i></div>
-                            <h3>Programming</h3>
-                            <p>Belajar HTML, CSS, JavaScript, Python, Java, PHP, dari dasar sampai mahir.</p>
+                    <div class="hero-stat-box">
+                        <span class="hero-stat-num" id="heroHariBersama">0</span>
+                        <span class="hero-stat-label">HARI BERSAMA</span>
+                    </div>
+                </div>
+                <p class="hero-desc">SMK Negeri 1 Kota Gorontalo</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary magnetic-btn" data-page="about"><i class="fas fa-rocket"></i> Jelajahi</a>
+                    <a href="#" class="btn btn-secondary magnetic-btn" data-page="members"><i class="fas fa-users"></i> Anggota Kelas</a>
+                </div>
+            </div>
+            <div class="scroll-indicator-wrapper">
+                <div class="scroll-indicator">
+                    <div class="mouse"><div class="wheel"></div></div>
+                    <span class="scroll-text">Scroll ke bawah</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Tentang Kami</span>
+                    <h2 class="section-title">Apa itu <span class="text-toska">PPLG?</span></h2>
+                    <p class="section-subtitle">Jurusan yang bikin kamu jadi programmer handal</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card scroll-reveal" data-delay="100">
+                        <div class="card-icon"><i class="fas fa-code"></i></div>
+                        <h3>Programming</h3>
+                        <p>Belajar HTML, CSS, JavaScript, Python, Java, PHP, dari dasar sampai mahir.</p>
+                    </div>
+                    <div class="about-card scroll-reveal" data-delay="200">
+                        <div class="card-icon"><i class="fas fa-gamepad"></i></div>
+                        <h3>Game Dev</h3>
+                        <p>Bikin game 2D dan 3D pakai Unity, Godot, Construct. Seru abis!</p>
+                    </div>
+                    <div class="about-card scroll-reveal" data-delay="300">
+                        <div class="card-icon"><i class="fas fa-database"></i></div>
+                        <h3>Basis Data</h3>
+                        <p>Ngelola data pakai MySQL, PostgreSQL, MongoDB.</p>
+                    </div>
+                    <div class="about-card scroll-reveal" data-delay="400">
+                        <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h3>UI/UX Design</h3>
+                        <p>Desain tampilan aplikasi kece pakai Figma dan Adobe XD.</p>
+                    </div>
+                    <div class="about-card scroll-reveal" data-delay="500">
+                        <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Mobile Dev</h3>
+                        <p>Bikin aplikasi Android dan iOS pakai Flutter dan React Native.</p>
+                    </div>
+                    <div class="about-card scroll-reveal" data-delay="600">
+                        <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                        <h3>Jaringan</h3>
+                        <p>Belajar konfigurasi jaringan, router, dan cybersecurity dasar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wali Kelas -->
+        <section class="teacher-section" id="teacher">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Wali Kelas</span>
+                    <h2 class="section-title">Guru Wali Kelas <span class="text-toska">Kita</span></h2>
+                </div>
+                <div class="teacher-wrapper scroll-reveal">
+                    <div class="teacher-card">
+                        <div class="teacher-photo-wrap">
+                            <img src="images/parnoto.jpg" alt="Parnoto, S.Kom" class="teacher-photo">
                         </div>
-                        <div class="about-card scroll-reveal" data-delay="200">
-                            <div class="card-icon"><i class="fas fa-gamepad"></i></div>
-                            <h3>Game Dev</h3>
-                            <p>Bikin game 2D dan 3D pakai Unity, Godot, Construct. Seru abis!</p>
-                        </div>
-                        <div class="about-card scroll-reveal" data-delay="300">
-                            <div class="card-icon"><i class="fas fa-database"></i></div>
-                            <h3>Basis Data</h3>
-                            <p>Ngelola data pakai MySQL, PostgreSQL, MongoDB.</p>
-                        </div>
-                        <div class="about-card scroll-reveal" data-delay="400">
-                            <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
-                            <h3>UI/UX Design</h3>
-                            <p>Desain tampilan aplikasi kece pakai Figma dan Adobe XD.</p>
-                        </div>
-                        <div class="about-card scroll-reveal" data-delay="500">
-                            <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
-                            <h3>Mobile Dev</h3>
-                            <p>Bikin aplikasi Android dan iOS pakai Flutter dan React Native.</p>
-                        </div>
-                        <div class="about-card scroll-reveal" data-delay="600">
-                            <div class="card-icon"><i class="fas fa-network-wired"></i></div>
-                            <h3>Jaringan</h3>
-                            <p>Belajar konfigurasi jaringan, router, dan cybersecurity dasar.</p>
+                        <div class="teacher-info">
+                            <h3 class="teacher-name">Parnoto, S.Kom</h3>
+                            <p class="teacher-title">Wali Kelas 10 PPLG 1</p>
+                            <div class="teacher-divider"></div>
+                            <p class="teacher-desc">Terima kasih atas bimbingan dan dedikasi Bapak dalam membantu kami belajar dan berkembang di jurusan PPLG.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-<!-- Wali Kelas Section -->
-    <section class="teacher-section" id="teacher">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <span class="section-tag">Wali Kelas</span>
-                <h2 class="section-title">Guru Wali Kelas <span class="text-toska">Kita</span></h2>
-            </div>
-            <div class="teacher-wrapper scroll-reveal">
-                <div class="teacher-card">
-                    <div class="teacher-photo-wrap">
-                        <img src="images/parnoto.jpg" alt="Parnoto, S.Kom" class="teacher-photo">
+        <!-- Stats -->
+        <section class="stats-section" id="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item scroll-reveal">
+                        <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="stat-number" data-target="30">0</div>
+                        <div class="stat-label">Siswa</div>
                     </div>
-                    <div class="teacher-info">
-                        <h3 class="teacher-name">Parnotuu, S.Kom</h3>
-                        <p class="teacher-title">Wali Kelas 10 PPLG 1</p>
-                        <div class="teacher-divider"></div>
-                        <p class="teacher-desc">Terima kasih atas bimbingan dan dedikasi Bapak dalam membantu kami belajar dan berkembang di jurusan PPLG.</p>
+                    <div class="stat-item scroll-reveal" data-delay="100">
+                        <div class="stat-icon"><i class="fas fa-book"></i></div>
+                        <div class="stat-number" data-target="12">0</div>
+                        <div class="stat-label">Mapel</div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        <!-- Stats Section - HARI BERSAMA dihitung dari tahun lalu (kelas 10) -->
-        <section class="stack-section stats-section" id="stats">
-            <div class="stack-inner">
-                <div class="container">
-                    <div class="stats-grid">
-                        <div class="stat-item scroll-reveal">
-                            <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
-                            <div class="stat-number" data-target="30">0</div>
-                            <div class="stat-label">Siswa</div>
-                        </div>
-                        <div class="stat-item scroll-reveal" data-delay="100">
-                            <div class="stat-icon"><i class="fas fa-book"></i></div>
-                            <div class="stat-number" data-target="12">0</div>
-                            <div class="stat-label">Mapel</div>
-                        </div>
-                        <div class="stat-item scroll-reveal" data-delay="200">
-                            <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-                            <div class="stat-number" data-target="0">0</div>
-                            <div class="stat-label">Projek</div>
-                        </div>
-                        <div class="stat-item scroll-reveal" data-delay="300">
-                            <div class="stat-icon"><i class="fas fa-trophy"></i></div>
-                            <div class="stat-number" data-target="0">0</div>
-                            <div class="stat-label">Prestasi</div>
-                        </div>
-
+                    <div class="stat-item scroll-reveal" data-delay="200">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-number" data-target="0">0</div>
+                        <div class="stat-label">Projek</div>
+                    </div>
+                    <div class="stat-item scroll-reveal" data-delay="300">
+                        <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="stat-number" data-target="0">0</div>
+                        <div class="stat-label">Prestasi</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Schedule Section -->
-        <section class="stack-section schedule-section" id="schedule">
-            <div class="stack-inner">
-                <div class="container">
-                    <div class="section-header scroll-reveal">
-                        <span class="section-tag">Jadwal Pelajaran</span>
-                        <h2 class="section-title">Jangan <span class="text-toska">Telat!</span></h2>
-                        <p class="section-subtitle">Catat jadwalnya biar nggak ketinggalan</p>
-                    </div>
-                    <div class="schedule-wrapper scroll-reveal">
-                        <div class="schedule-tabs">
-                            <button class="tab-btn active" data-tab="senin"><i class="fas fa-calendar-day"></i> Senin</button>
-                            <button class="tab-btn" data-tab="selasa"><i class="fas fa-calendar-day"></i> Selasa</button>
-                            <button class="tab-btn" data-tab="rabu"><i class="fas fa-calendar-day"></i> Rabu</button>
-                            <button class="tab-btn" data-tab="kamis"><i class="fas fa-calendar-day"></i> Kamis</button>
-                            <button class="tab-btn" data-tab="jumat"><i class="fas fa-calendar-day"></i> Jumat</button>
-                        </div>
-                        <div class="schedule-content">
-                            <div class="tab-panel active" id="senin">
-                                <div class="schedule-list">
-                                    <div class="schedule-row"><div class="schedule-time">07:00 - 09:00</div><div class="schedule-subject">Pemrograman Dasar</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Budi Santoso</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab 1</div></div>
-                                    <div class="schedule-row"><div class="schedule-time">09:30 - 11:00</div><div class="schedule-subject">Bahasa Inggris</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Sari Dewi</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
-                                    <div class="schedule-row"><div class="schedule-time">11:00 - 12:30</div><div class="schedule-subject">Pendidikan Agama</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Ahmad Fauzi</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
-                                </div>
-                            </div>
-                            <div class="tab-panel" id="selasa">
-                                <div class="schedule-list">
-                                    <div class="schedule-row"><div class="schedule-time">07:00 - 09:30</div><div class="schedule-subject">Basis Data</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Andi Wijaya</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab 2</div></div>
-                                    <div class="schedule-row"><div class="schedule-time">10:00 - 12:00</div><div class="schedule-subject">Desain Grafis</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Rina Kartika</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab Desain</div></div>
-                                </div>
-                            </div>
-                            <div class="tab-panel" id="rabu">
-                                <div class="schedule-list">
-                                    <div class="schedule-row"><div class="schedule-time">07:00 - 10:00</div><div class="schedule-subject">Pemrograman Web</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Dodi Pratama</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab 1</div></div>
-                                    <div class="schedule-row"><div class="schedule-time">10:30 - 12:00</div><div class="schedule-subject">Matematika</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Lestari</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
-                                </div>
-                            </div>
-                            <div class="tab-panel" id="kamis">
-                                <div class="schedule-list">
-                                    <div class="schedule-row"><div class="schedule-time">07:00 - 09:30</div><div class="schedule-subject">Game Development</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Eko Nugroho</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab Game</div></div>
-                                    <div class="schedule-row"><div class="schedule-time">10:00 - 11:30</div><div class="schedule-subject">Bahasa Indonesia</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Ani Susanti</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
-                                </div>
-                            </div>
-                            <div class="tab-panel" id="jumat">
-                                <div class="schedule-list">
-                                    <div class="schedule-row"><div class="schedule-time">07:00 - 09:00</div><div class="schedule-subject">Produk Kreatif (PKK)</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Dewi Kusuma</div><div class="schedule-room"><i class="fas fa-door-open"></i> Workshop</div></div>
-                                    <div class="schedule-row"><div class="schedule-time">09:30 - 11:00</div><div class="schedule-subject">PPKN</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Bambang Setyo</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Quote -->
+        <section class="quote-section">
+            <div class="container">
+                <div class="quote-box scroll-reveal">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="quote-text">Kode yang bagus itu kayak lelucon. Kalau harus dijelasin, berarti nggak bagus.</p>
+                    <div class="quote-author"><span>— Programmer </span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Members Section -->
-        <section class="stack-section members-section" id="members">
-            <div class="stack-inner">
-                <div class="container">
-                    <div class="section-header scroll-reveal">
-                        <span class="section-tag">Anggota Kelas</span>
-                        <h2 class="section-title">Kenalan <span class="text-toska">Yuk!</span></h2>
-                        <p class="section-subtitle">30 siswa keren di kelas kita</p>
-                    </div>
-                    <div class="members-grid">
-                        <div class="member-card scroll-reveal"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">AR</div><h4>Ahmad Rizky</h4><span class="member-role">Ketua Kelas</span></div>
-                        <div class="member-card scroll-reveal" data-delay="50"><div class="member-avatar" style="background: linear-gradient(135deg, #20B2AA, #48D1CC);">DL</div><h4>Dewi Lestari</h4><span class="member-role">Wakil Ketua</span></div>
-                        <div class="member-card scroll-reveal" data-delay="100"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #5F9EA0);">BS</div><h4>Bima Sakti</h4><span class="member-role">Sekretaris</span></div>
-                        <div class="member-card scroll-reveal" data-delay="150"><div class="member-avatar" style="background: linear-gradient(135deg, #00CED1, #40E0D0);">SA</div><h4>Siti Aminah</h4><span class="member-role">Bendahara</span></div>
-                        <div class="member-card scroll-reveal" data-delay="200"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #20B2AA);">RH</div><h4>Rudi Hartono</h4><span class="member-role">Anggota</span></div>
-                        <div class="member-card scroll-reveal" data-delay="250"><div class="member-avatar" style="background: linear-gradient(135deg, #5F9EA0, #00CED1);">NS</div><h4>Nina Septiani</h4><span class="member-role">Anggota</span></div>
-                        <div class="member-card scroll-reveal" data-delay="300"><div class="member-avatar" style="background: linear-gradient(135deg, #40E0D0, #48D1CC);">FN</div><h4>Fajar Nugraha</h4><span class="member-role">Anggota</span></div>
-                        <div class="member-card scroll-reveal" data-delay="350"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">MI</div><h4>Maya Indah</h4><span class="member-role">Anggota</span></div>
-                    </div>
-                    <div class="members-more scroll-reveal"><p>Dan 22 siswa lainnya...</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section - FOTO DARI FOLDER LOKAL -->
-        <section class="stack-section gallery-section" id="gallery">
-            <div class="stack-inner">
-                <div class="container">
-                    <div class="section-header scroll-reveal">
-                        <span class="section-tag">Galeri</span>
-                        <h2 class="section-title">Momen <span class="text-toska">Seru</span></h2>
-                        <p class="section-subtitle">Foto-foto kegiatan kelas kita</p>
-                    </div>
-                    <div class="gallery-grid">
-                        <div class="gallery-item scroll-reveal" onclick="openLightbox(this)">
-                            <img src="images/belajar-bareng.jpg" alt="Belajar Bareng">
-                            <div class="gallery-overlay"><div class="gallery-info"><h4>Belajar Bareng</h4><p><i class="fas fa-calendar"></i> 15 Jan 2026</p></div></div>
-                        </div>
-                        <div class="gallery-item scroll-reveal" data-delay="100" onclick="openLightbox(this)">
-                            <img src="images/coding-session.jpg" alt="Coding Session">
-                            <div class="gallery-overlay"><div class="gallery-info"><h4>Coding Session</h4><p><i class="fas fa-calendar"></i> 20 Jan 2026</p></div></div>
-                        </div>
-                        <div class="gallery-item scroll-reveal" data-delay="200" onclick="openLightbox(this)">
-                            <img src="images/praktikum-lab.jpg" alt="Praktikum Lab">
-                            <div class="gallery-overlay"><div class="gallery-info"><h4>Praktikum Lab</h4><p><i class="fas fa-calendar"></i> 25 Jan 2026</p></div></div>
-                        </div>
-                        <div class="gallery-item scroll-reveal" data-delay="300" onclick="openLightbox(this)">
-                            <img src="images/presentasi-projek.jpg" alt="Presentasi Projek">
-                            <div class="gallery-overlay"><div class="gallery-info"><h4>Presentasi Projek</h4><p><i class="fas fa-calendar"></i> 1 Feb 2026</p></div></div>
-                        </div>
-                        <div class="gallery-item scroll-reveal" data-delay="400" onclick="openLightbox(this)">
-                            <img src="images/kegiatan-outdoor.jpg" alt="Kegiatan Outdoor">
-                            <div class="gallery-overlay"><div class="gallery-info"><h4>Kegiatan Outdoor</h4><p><i class="fas fa-calendar"></i> 10 Feb 2026</p></div></div>
-                        </div>
-                        <div class="gallery-item scroll-reveal" data-delay="500" onclick="openLightbox(this)">
-                            <img src="images/diskusi-kelompok.jpg" alt="Diskusi Kelompok">
-                            <div class="gallery-overlay"><div class="gallery-info"><h4>Diskusi Kelompok</h4><p><i class="fas fa-calendar"></i> 15 Feb 2026</p></div></div>
+        <!-- Pembuat -->
+        <section class="creator-section" id="creator">
+            <div class="container">
+                <div class="creator-wrapper single">
+                    <div class="creator-info-box scroll-reveal">
+                        <div class="creator-card">
+                            <div class="creator-photo-wrap">
+                                <img src="images/pembuat.jpg" alt="Al-Falaq Pakaya" class="creator-photo">
+                                <div class="creator-badge"><i class="fas fa-code"></i></div>
+                            </div>
+                            <div class="creator-details">
+                                <h3 class="creator-name">Al-Falaq Pakaya</h3>
+                                <p class="creator-age">17 Tahun</p>
+                                <div class="creator-org">
+                                    <div class="org-badge">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>PKS Polresta Gorontalo Kota</span>
+                                    </div>
+                                    <p class="org-desc">Patroli Keamanan Sekolah</p>
+                                </div>
+                                <p class="creator-note"><i class="fas fa-robot"></i> Dibantu AI untuk rapihin UI dan fitur</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <p class="creator-thanks">Website ini dibuat oleh Al-Falaq dengan bantuan AI untuk perapihan UI dan fitur tambahan</p>
             </div>
         </section>
-
     </div>
 
-    <!-- Quote Section -->
-    <section class="quote-section">
-        <div class="container">
-            <div class="quote-box scroll-reveal">
-                <i class="fas fa-quote-left quote-icon"></i>
-                <p class="quote-text">Kode yang bagus itu kayak lelucon. Kalau harus dijelasin, berarti nggak bagus.</p>
-                <div class="quote-author"><span>— Programmer </span></div>
+    <!-- ==================== PAGE: SCHEDULE ==================== -->
+    <div class="page" id="page-schedule">
+        <div class="page-header">
+            <div class="container">
+                <span class="section-tag">Jadwal</span>
+                <h2 class="section-title">Jangan <span class="text-toska">Lupa!</span></h2>
+                <p class="section-subtitle">Catat jadwalnya biar Tida mo Lupa</p>
             </div>
         </div>
-    </section>
-
-            
-
-<!-- Pembuat Website Section -->
-    <section class="creator-section" id="creator">
         <div class="container">
-            <div class="creator-wrapper single">
-                <div class="creator-info-box scroll-reveal">
-                    <div class="creator-card">
-                        <div class="creator-photo-wrap">
-                            <img src="images/pembuat.jpg" alt="Al-Falaq Pakaya" class="creator-photo">
-                            <div class="creator-badge">
-                                <i class="fas fa-code"></i>
-                            </div>
+            <!-- Jadwal Pelajaran -->
+            <div class="schedule-wrapper scroll-reveal">
+                <h3 class="page-section-title"><i class="fas fa-book"></i> Jadwal Pelajaran</h3>
+                <div class="schedule-tabs">
+                    <button class="tab-btn active" data-tab="senin"><i class="fas fa-calendar-day"></i> Senin</button>
+                    <button class="tab-btn" data-tab="selasa"><i class="fas fa-calendar-day"></i> Selasa</button>
+                    <button class="tab-btn" data-tab="rabu"><i class="fas fa-calendar-day"></i> Rabu</button>
+                    <button class="tab-btn" data-tab="kamis"><i class="fas fa-calendar-day"></i> Kamis</button>
+                    <button class="tab-btn" data-tab="jumat"><i class="fas fa-calendar-day"></i> Jumat</button>
+                </div>
+                <div class="schedule-content">
+                    <div class="tab-panel active" id="senin">
+                        <div class="schedule-list">
+                            <div class="schedule-row"><div class="schedule-time">07:00 - 09:00</div><div class="schedule-subject">Pemrograman Dasar</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Budi Santoso</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab 1</div></div>
+                            <div class="schedule-row"><div class="schedule-time">09:30 - 11:00</div><div class="schedule-subject">Bahasa Inggris</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Sari Dewi</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
+                            <div class="schedule-row"><div class="schedule-time">11:00 - 12:30</div><div class="schedule-subject">Pendidikan Agama</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Ahmad Fauzi</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
                         </div>
-                        <div class="creator-details">
-                            <h3 class="creator-name">Al-Falaq Pakaya</h3>
-                            <p class="creator-age">17 Tahun</p>
-                            <div class="creator-org">
-                                <div class="org-badge">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>PKS Polresta Gorontalo Kota</span>
-                                </div>
-                                <p class="org-desc">Patroli Keamanan Sekolah</p>
-                            </div>
+                    </div>
+                    <div class="tab-panel" id="selasa">
+                        <div class="schedule-list">
+                            <div class="schedule-row"><div class="schedule-time">07:00 - 09:30</div><div class="schedule-subject">Basis Data</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Andi Wijaya</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab 2</div></div>
+                            <div class="schedule-row"><div class="schedule-time">10:00 - 12:00</div><div class="schedule-subject">Desain Grafis</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Rina Kartika</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab Desain</div></div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="rabu">
+                        <div class="schedule-list">
+                            <div class="schedule-row"><div class="schedule-time">07:00 - 10:00</div><div class="schedule-subject">Pemrograman Web</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Dodi Pratama</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab 1</div></div>
+                            <div class="schedule-row"><div class="schedule-time">10:30 - 12:00</div><div class="schedule-subject">Matematika</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Lestari</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="kamis">
+                        <div class="schedule-list">
+                            <div class="schedule-row"><div class="schedule-time">07:00 - 09:30</div><div class="schedule-subject">Game Development</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Eko Nugroho</div><div class="schedule-room"><i class="fas fa-door-open"></i> Lab Game</div></div>
+                            <div class="schedule-row"><div class="schedule-time">10:00 - 11:30</div><div class="schedule-subject">Bahasa Indonesia</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Ani Susanti</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="jumat">
+                        <div class="schedule-list">
+                            <div class="schedule-row"><div class="schedule-time">07:00 - 09:00</div><div class="schedule-subject">Produk Kreatif (PKK)</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Bu Dewi Kusuma</div><div class="schedule-room"><i class="fas fa-door-open"></i> Workshop</div></div>
+                            <div class="schedule-row"><div class="schedule-time">09:30 - 11:00</div><div class="schedule-subject">PPKN</div><div class="schedule-teacher"><i class="fas fa-chalkboard-teacher"></i> Pak Bambang Setyo</div><div class="schedule-room"><i class="fas fa-door-open"></i> Kelas</div></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <p class="creator-thanks">Website ini dibuat oleh Al-Falaq dengan bantuan AI untuk perapihan UI dan fitur tambahan</p>
-        </div>
-    </section>
 
-<!-- Footer - ALAMAT UPDATE -->
+            <!-- Jadwal Piket - BARU & KEREN -->
+            <div class="piket-wrapper scroll-reveal">
+                <h3 class="page-section-title"><i class="fas fa-broom"></i> Jadwal Piket Kelas</h3>
+                <div class="piket-grid">
+                    <div class="piket-card" data-day="senin">
+                        <div class="piket-header">
+                            <div class="piket-day">Senin</div>
+                            <div class="piket-icon"><i class="fas fa-sun"></i></div>
+                        </div>
+                        <div class="piket-members">
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">AR</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #20B2AA, #48D1CC);">DL</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #5F9EA0);">BS</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #00CED1, #40E0D0);">SA</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #20B2AA);">RH</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #5F9EA0, #00CED1);">NS</div>
+                        </div>
+                        <div class="piket-names">Ahmad, Dewi, Bima, Siti, Rudi, Nina</div>
+                    </div>
+                    <div class="piket-card" data-day="selasa">
+                        <div class="piket-header">
+                            <div class="piket-day">Selasa</div>
+                            <div class="piket-icon"><i class="fas fa-cloud-sun"></i></div>
+                        </div>
+                        <div class="piket-members">
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #40E0D0, #48D1CC);">FN</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">MI</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #20B2AA, #48D1CC);">AD</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #5F9EA0);">RK</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #00CED1, #40E0D0);">WS</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #20B2AA);">LY</div>
+                        </div>
+                        <div class="piket-names">Fajar, Maya, Andi, Rina, Wawan, Lina</div>
+                    </div>
+                    <div class="piket-card" data-day="rabu">
+                        <div class="piket-header">
+                            <div class="piket-day">Rabu</div>
+                            <div class="piket-icon"><i class="fas fa-cloud"></i></div>
+                        </div>
+                        <div class="piket-members">
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #5F9EA0, #00CED1);">DP</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #40E0D0, #48D1CC);">ES</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">FR</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #20B2AA, #48D1CC);">GT</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #5F9EA0);">HU</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #00CED1, #40E0D0);">IV</div>
+                        </div>
+                        <div class="piket-names">Dedi, Eko, Fajar, Gilang, Hadi, Ivan</div>
+                    </div>
+                    <div class="piket-card" data-day="kamis">
+                        <div class="piket-header">
+                            <div class="piket-day">Kamis</div>
+                            <div class="piket-icon"><i class="fas fa-cloud-rain"></i></div>
+                        </div>
+                        <div class="piket-members">
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #20B2AA);">JW</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #5F9EA0, #00CED1);">KX</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #40E0D0, #48D1CC);">LY</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">MZ</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #20B2AA, #48D1CC);">NA</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #5F9EA0);">OB</div>
+                        </div>
+                        <div class="piket-names">Joko, Kevin, Lina, Mika, Nanda, Oka</div>
+                    </div>
+                    <div class="piket-card" data-day="jumat">
+                        <div class="piket-header">
+                            <div class="piket-day">Jumat</div>
+                            <div class="piket-icon"><i class="fas fa-star"></i></div>
+                        </div>
+                        <div class="piket-members">
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #00CED1, #40E0D0);">PC</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #20B2AA);">QD</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #5F9EA0, #00CED1);">RE</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #40E0D0, #48D1CC);">SF</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">TG</div>
+                            <div class="piket-avatar" style="background: linear-gradient(135deg, #20B2AA, #48D1CC);">UH</div>
+                        </div>
+                        <div class="piket-names">Putra, Qori, Rian, Sinta, Tono, Umi</div>
+                    </div>
+                    <div class="piket-card weekend" data-day="sabtu-minggu">
+                        <div class="piket-header">
+                            <div class="piket-day">Sabtu & Minggu</div>
+                            <div class="piket-icon"><i class="fas fa-moon"></i></div>
+                        </div>
+                        <div class="piket-members center">
+                            <div class="piket-avatar large" style="background: linear-gradient(135deg, #008B8B, #00CED1);">🎉</div>
+                        </div>
+                        <div class="piket-names weekend-text">Libur Piket!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE: MEMBERS ==================== -->
+    <div class="page" id="page-members">
+        <div class="page-header">
+            <div class="container">
+                <span class="section-tag">Anggota</span>
+                <h2 class="section-title">Kenalan <span class="text-toska">Yuk!</span></h2>
+                <p class="section-subtitle">30 siswa keren di kelas kita</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="members-grid">
+                <div class="member-card scroll-reveal"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">AR</div><h4>Ahmad Rizky</h4><span class="member-role">Ketua Kelas</span></div>
+                <div class="member-card scroll-reveal" data-delay="50"><div class="member-avatar" style="background: linear-gradient(135deg, #20B2AA, #48D1CC);">DL</div><h4>Dewi Lestari</h4><span class="member-role">Wakil Ketua</span></div>
+                <div class="member-card scroll-reveal" data-delay="100"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #5F9EA0);">BS</div><h4>Bima Sakti</h4><span class="member-role">Sekretaris</span></div>
+                <div class="member-card scroll-reveal" data-delay="150"><div class="member-avatar" style="background: linear-gradient(135deg, #00CED1, #40E0D0);">SA</div><h4>Siti Aminah</h4><span class="member-role">Bendahara</span></div>
+                <div class="member-card scroll-reveal" data-delay="200"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #20B2AA);">RH</div><h4>Rudi Hartono</h4><span class="member-role">Anggota</span></div>
+                <div class="member-card scroll-reveal" data-delay="250"><div class="member-avatar" style="background: linear-gradient(135deg, #5F9EA0, #00CED1);">NS</div><h4>Nina Septiani</h4><span class="member-role">Anggota</span></div>
+                <div class="member-card scroll-reveal" data-delay="300"><div class="member-avatar" style="background: linear-gradient(135deg, #40E0D0, #48D1CC);">FN</div><h4>Fajar Nugraha</h4><span class="member-role">Anggota</span></div>
+                <div class="member-card scroll-reveal" data-delay="350"><div class="member-avatar" style="background: linear-gradient(135deg, #008B8B, #00CED1);">MI</div><h4>Maya Indah</h4><span class="member-role">Anggota</span></div>
+            </div>
+            <div class="members-more scroll-reveal"><p>Dan 22 siswa lainnya...</p></div>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE: GALLERY ==================== -->
+    <div class="page" id="page-gallery">
+        <div class="page-header">
+            <div class="container">
+                <span class="section-tag">Galeri</span>
+                <h2 class="section-title">Momen <span class="text-toska">Seru</span></h2>
+                <p class="section-subtitle">Foto-foto kegiatan kelas kita</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item scroll-reveal" onclick="openLightbox(this)">
+                    <img src="images/belajar-bareng.jpg" alt="Belajar Bareng">
+                    <div class="gallery-overlay"><div class="gallery-info"><h4>Belajar Bareng</h4><p><i class="fas fa-calendar"></i> 15 Jan 2026</p></div></div>
+                </div>
+                <div class="gallery-item scroll-reveal" data-delay="100" onclick="openLightbox(this)">
+                    <img src="images/coding-session.jpg" alt="Coding Session">
+                    <div class="gallery-overlay"><div class="gallery-info"><h4>Coding Session</h4><p><i class="fas fa-calendar"></i> 20 Jan 2026</p></div></div>
+                </div>
+                <div class="gallery-item scroll-reveal" data-delay="200" onclick="openLightbox(this)">
+                    <img src="images/praktikum-lab.jpg" alt="Praktikum Lab">
+                    <div class="gallery-overlay"><div class="gallery-info"><h4>Praktikum Lab</h4><p><i class="fas fa-calendar"></i> 25 Jan 2026</p></div></div>
+                </div>
+                <div class="gallery-item scroll-reveal" data-delay="300" onclick="openLightbox(this)">
+                    <img src="images/presentasi-projek.jpg" alt="Presentasi Projek">
+                    <div class="gallery-overlay"><div class="gallery-info"><h4>Presentasi Projek</h4><p><i class="fas fa-calendar"></i> 1 Feb 2026</p></div></div>
+                </div>
+                <div class="gallery-item scroll-reveal" data-delay="400" onclick="openLightbox(this)">
+                    <img src="images/kegiatan-outdoor.jpg" alt="Kegiatan Outdoor">
+                    <div class="gallery-overlay"><div class="gallery-info"><h4>Kegiatan Outdoor</h4><p><i class="fas fa-calendar"></i> 10 Feb 2026</p></div></div>
+                </div>
+                <div class="gallery-item scroll-reveal" data-delay="500" onclick="openLightbox(this)">
+                    <img src="images/diskusi-kelompok.jpg" alt="Diskusi Kelompok">
+                    <div class="gallery-overlay"><div class="gallery-info"><h4>Diskusi Kelompok</h4><p><i class="fas fa-calendar"></i> 15 Feb 2026</p></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="wave-container">
             <svg class="wave" viewBox="0 0 1440 120" fill="none"><path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/></svg>
@@ -418,10 +479,10 @@
                 <div class="footer-links">
                     <h4>Menu</h4>
                     <ul>
-                        <li><a href="#home">Beranda</a></li>
-                        <li><a href="#about">Tentang</a></li>
-                        <li><a href="#schedule">Jadwal</a></li>
-                        <li><a href="#members">Anggota</a></li>
+                        <li><a href="#" data-page="home">Beranda</a></li>
+                        <li><a href="#" data-page="about">Tentang</a></li>
+                        <li><a href="#" data-page="schedule">Jadwal</a></li>
+                        <li><a href="#" data-page="members">Anggota</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
@@ -448,21 +509,21 @@
 
     <!-- Bottom Tab Navigation -->
     <div class="bottom-tabs" id="bottomTabs">
-        <a href="#home" class="bottom-tab active" data-section="home">
+        <a href="#" class="bottom-tab active" data-page="home">
             <i class="fas fa-home"></i>
             <span>Beranda</span>
         </a>
-        <a href="#about" class="bottom-tab" data-section="about">
-            <i class="fas fa-info-circle"></i>
-            <span>Tentang</span>
-        </a>
-        <a href="#schedule" class="bottom-tab" data-section="schedule">
+        <a href="#" class="bottom-tab" data-page="schedule">
             <i class="fas fa-calendar-alt"></i>
             <span>Jadwal</span>
         </a>
-        <a href="#gallery" class="bottom-tab" data-section="gallery">
+        <a href="#" class="bottom-tab" data-page="members">
+            <i class="fas fa-users"></i>
+            <span>Anggota</span>
+        </a>
+        <a href="#" class="bottom-tab" data-page="gallery">
             <i class="fas fa-images"></i>
-            <span>Foto</span>
+            <span>Galeri</span>
         </a>
     </div>
 
