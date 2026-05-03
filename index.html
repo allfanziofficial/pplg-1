@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>10 PPLG 1 - SMK Negeri 1 Kota Gorontalo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -70,7 +70,7 @@
             <span class="logo-text">10 PPLG 1</span>
         </div>
         <ul class="nav-menu" id="navMenu">
-            <li><a href="#" class="nav-link" data-page="home">Beranda</a></li>
+            <li><a href="#" class="nav-link active" data-page="home">Beranda</a></li>
             <li><a href="#" class="nav-link" data-page="about">Tentang</a></li>
             <li><a href="#" class="nav-link" data-page="schedule">Jadwal</a></li>
             <li><a href="#" class="nav-link" data-page="members">Anggota</a></li>
@@ -223,11 +223,26 @@
             </div>
         </section>
 
-        <!-- Pembuat -->
+        <!-- Pembuat & Foto Kelas -->
         <section class="creator-section" id="creator">
             <div class="container">
-                <div class="creator-wrapper single">
-                    <div class="creator-info-box scroll-reveal">
+                <div class="section-header scroll-reveal">
+                    <span class="section-tag">Tentang Website</span>
+                    <h2 class="section-title">Foto Kelas & <span class="text-toska">Pembuat</span></h2>
+                </div>
+                <div class="creator-wrapper">
+                    <!-- Foto Kelas -->
+                    <div class="class-photo-box scroll-reveal" data-delay="100">
+                        <div class="photo-frame">
+                            <img src="images/kelas.jpg" alt="Foto Kelas 10 PPLG 1" class="class-photo">
+                            <div class="photo-caption">
+                                <i class="fas fa-camera"></i>
+                                <span>Foto Kelas 10 PPLG 1 - SMKN 1 Kota Gorontalo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Info Pembuat -->
+                    <div class="creator-info-box scroll-reveal" data-delay="200">
                         <div class="creator-card">
                             <div class="creator-photo-wrap">
                                 <img src="images/pembuat.jpg" alt="Al-Falaq Pakaya" class="creator-photo">
@@ -308,7 +323,7 @@
                 </div>
             </div>
 
-            <!-- Jadwal Piket - BARU & KEREN -->
+            <!-- Jadwal Piket -->
             <div class="piket-wrapper scroll-reveal">
                 <h3 class="page-section-title"><i class="fas fa-broom"></i> Jadwal Piket Kelas</h3>
                 <div class="piket-grid">
@@ -496,7 +511,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 10 PPLG 1. Web Di buat Oleh Alfalaq pakaya</p>
+                <p>&copy; 2026 10 PPLG 1. Web Di buat Oleh Alfalaq pakaya</p>
             </div>
         </div>
     </footer>
