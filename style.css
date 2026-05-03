@@ -825,6 +825,7 @@ img { max-width: 100%; height: auto; display: block; }
     .schedule-content { padding: 12px; }
     .tab-btn { padding: 8px 16px; font-size: 0.8rem; }
     .schedule-tabs { padding: 8px; gap: 6px; }
+    .page-section-title i { display: none; }
     .members-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .member-card { padding: 20px 10px; }
     .member-avatar { width: 60px; height: 60px; font-size: 1.4rem; }
