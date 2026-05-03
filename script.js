@@ -1,16 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ============================================
     // LOADER
-    // ============================================
     const loader = document.getElementById('loader');
     window.addEventListener('load', () => {
         setTimeout(() => loader.classList.add('hidden'), 800);
     });
 
-    // ============================================
-    // SCROLL PROGRESS BAR
-    // ============================================
+    // SCROLL PROGRESS
     const scrollProgress = document.getElementById('scrollProgress');
     window.addEventListener('scroll', () => {
         const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -18,15 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollProgress.style.width = (scrollTop / scrollHeight) * 100 + '%';
     });
 
-    // ============================================
     // NAVBAR
-    // ============================================
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Mobile menu
+    // MOBILE MENU
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     hamburger.addEventListener('click', () => {
@@ -40,13 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ============================================
     // BOTTOM TABS ACTIVE STATE
-    // ============================================
     const bottomTabs = document.querySelectorAll('.bottom-tab');
     const allSections = document.querySelectorAll('section[id]');
     
-    window.addEventListener('scroll', () => {
+    function updateActiveState() {
         let current = '';
         allSections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -55,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Update bottom tabs
         bottomTabs.forEach(tab => {
             tab.classList.remove('active');
             if (tab.getAttribute('data-section') === current) {
@@ -63,18 +54,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Update nav links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') === '#' + current) {
                 link.classList.add('active');
             }
         });
-    });
+    }
+    
+    window.addEventListener('scroll', updateActiveState);
 
-    // ============================================
     // BACK TO TOP
-    // ============================================
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
         backToTop.classList.toggle('visible', window.scrollY > 500);
@@ -83,9 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ============================================
-    // HIDE BOTTOM TABS ON SCROLL DOWN, SHOW ON SCROLL UP
-    // ============================================
+    // HIDE BOTTOM TABS ON SCROLL DOWN
     let lastScroll = 0;
     const bottomTabsContainer = document.getElementById('bottomTabs');
     
@@ -99,9 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScroll = currentScroll;
     });
 
-    // ============================================
     // SCROLL REVEAL
-    // ============================================
     const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -118,9 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     scrollRevealElements.forEach(el => revealObserver.observe(el));
 
-    // ============================================
-    // COUNTER ANIMATION
-    // ============================================
+    // COUNTER
     const statNumbers = document.querySelectorAll('.stat-number');
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -147,9 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     statNumbers.forEach(stat => counterObserver.observe(stat));
 
-    // ============================================
     // SCHEDULE TABS
-    // ============================================
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -159,9 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ============================================
     // LIGHTBOX
-    // ============================================
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     
@@ -178,9 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape') closeLightbox();
     });
 
-    // ============================================
     // MUSIC PLAYER
-    // ============================================
     const musicToggle = document.getElementById('musicToggle');
     const musicPanel = document.getElementById('musicPanel');
     const playBtn = document.getElementById('playBtn');
@@ -263,57 +241,50 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('scroll', attemptAutoPlay, { once: true });
     document.addEventListener('touchstart', attemptAutoPlay, { once: true });
 
-    // ============================================
     // HERO PARTICLES
-    // ============================================
     const particlesContainer = document.getElementById('heroParticles');
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 25; i++) {
         const particle = document.createElement('div');
         particle.className = 'hero-particle';
         particle.style.cssText = `
             position: absolute;
-            width: ${Math.random() * 6 + 2}px;
-            height: ${Math.random() * 6 + 2}px;
-            background: rgba(255, 255, 255, ${Math.random() * 0.5 + 0.2});
+            width: ${Math.random() * 5 + 2}px;
+            height: ${Math.random() * 5 + 2}px;
+            background: rgba(255, 255, 255, ${Math.random() * 0.4 + 0.1});
             border-radius: 50%;
             left: ${Math.random() * 100}%;
             top: ${Math.random() * 100}%;
-            animation: float-particle ${Math.random() * 10 + 10}s infinite ease-in-out;
+            animation: float-particle ${Math.random() * 8 + 12}s infinite ease-in-out;
             animation-delay: ${Math.random() * 5}s;
         `;
         particlesContainer.appendChild(particle);
     }
 
-    // Add keyframes for particles
     const style = document.createElement('style');
     style.textContent = `
         @keyframes float-particle {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
-            25% { transform: translateY(-30px) translateX(10px); opacity: 0.8; }
-            50% { transform: translateY(-60px) translateX(-10px); opacity: 0.5; }
-            75% { transform: translateY(-30px) translateX(20px); opacity: 0.7; }
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+            25% { transform: translateY(-25px) translateX(8px); opacity: 0.7; }
+            50% { transform: translateY(-50px) translateX(-8px); opacity: 0.4; }
+            75% { transform: translateY(-25px) translateX(15px); opacity: 0.6; }
         }
     `;
     document.head.appendChild(style);
 
-    // ============================================
     // MAGNETIC BUTTONS
-    // ============================================
     document.querySelectorAll('.magnetic-btn').forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
         });
         btn.addEventListener('mouseleave', () => {
             btn.style.transform = 'translate(0, 0)';
         });
     });
 
-    // ============================================
     // SMOOTH SCROLL
-    // ============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -325,68 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ============================================
-    // TEXT SCRAMBLE ON HERO TITLE
-    // ============================================
-    class TextScramble {
-        constructor(el) {
-            this.el = el;
-            this.chars = '!<>-_\\/[]{}—=+*^?#________';
-            this.update = this.update.bind(this);
-        }
-        setText(newText) {
-            const oldText = this.el.innerText;
-            const length = Math.max(oldText.length, newText.length);
-            const promise = new Promise(resolve => this.resolve = resolve);
-            this.queue = [];
-            for (let i = 0; i < length; i++) {
-                const from = oldText[i] || '';
-                const to = newText[i] || '';
-                const start = Math.floor(Math.random() * 40);
-                const end = start + Math.floor(Math.random() * 40);
-                this.queue.push({ from, to, start, end, char: null });
-            }
-            cancelAnimationFrame(this.frameRequest);
-            this.frame = 0;
-            this.update();
-            return promise;
-        }
-        update() {
-            let output = '';
-            let complete = 0;
-            for (let i = 0, n = this.queue.length; i < n; i++) {
-                let { from, to, start, end, char } = this.queue[i];
-                if (this.frame >= end) {
-                    complete++;
-                    output += to;
-                } else if (this.frame >= start) {
-                    if (!char || Math.random() < 0.28) {
-                        char = this.chars[Math.floor(Math.random() * this.chars.length)];
-                        this.queue[i].char = char;
-                    }
-                    output += `<span style="color: var(--toska-light)">${char}</span>`;
-                } else {
-                    output += from;
-                }
-            }
-            this.el.innerHTML = output;
-            if (complete === this.queue.length) this.resolve();
-            else {
-                this.frameRequest = requestAnimationFrame(this.update);
-                this.frame++;
-            }
-        }
-    }
-
-    document.querySelectorAll('.title-line').forEach(line => {
-        const originalText = line.getAttribute('data-text') || line.innerText;
-        const fx = new TextScramble(line);
-        line.addEventListener('mouseenter', () => fx.setText(originalText));
-    });
-
-    // ============================================
     // CONSOLE EASTER EGG
-    // ============================================
     console.log('%c 10 PPLG 1 ', 'background: linear-gradient(135deg, #008B8B, #00CED1); color: #fff; font-size: 24px; font-weight: bold; padding: 10px 20px; border-radius: 10px;');
-    console.log('%cWebsite kelas buatan anak PPLG 1', 'color: #008B8B; font-size: 14px;');
+    console.log('%cSMK Negeri 1 Kota Gorontalo', 'color: #008B8B; font-size: 14px;');
 });
