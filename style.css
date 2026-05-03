@@ -307,6 +307,69 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-secondary:hover { background: rgba(255, 255, 255, 0.15); border-color: var(--white); transform: translateY(-3px); }
 .magnetic-btn { transition: transform 0.2s; }
 
+
+/* HERO STATS ROW - mirip referensi foto */
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-style: italic;
+    letter-spacing: 1px;
+    animation: fadeInUp 0.8s ease 0.15s both;
+}
+
+.hero-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero-stat-box {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 18px 28px;
+    text-align: center;
+    min-width: 110px;
+    transition: var(--transition);
+}
+
+.hero-stat-box:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-stat-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.hero-stat-label {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+/* Main title - X PPLG 1 besar */
+.main-title {
+    font-size: clamp(3rem, 8vw, 6rem) !important;
+    font-weight: 900 !important;
+    letter-spacing: 4px;
+    line-height: 1.1 !important;
+}
+
+
 /* SCROLL INDICATOR */
 .scroll-indicator-wrapper { position: absolute; bottom: 30px; left: 0; width: 100%; display: flex; justify-content: center; z-index: 2; }
 .scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: 12px; animation: fadeInUp 0.8s ease 0.6s both; }
@@ -483,6 +546,13 @@ img { max-width: 100%; height: auto; display: block; }
     .gallery-grid { grid-template-columns: 1fr; }
     .footer-content { grid-template-columns: 1fr; gap: 25px; text-align: center; }
     .social-icons { justify-content: center; }
+    
+    .hero-stats-row { gap: 12px; }
+    .hero-stat-box { padding: 14px 20px; min-width: 90px; }
+    .hero-stat-num { font-size: 1.6rem; }
+    .hero-stat-label { font-size: 0.6rem; }
+    .hero-subtitle { font-size: 0.95rem; margin-bottom: 20px; }
+
     .music-player { top: 12px; right: 12px; }
     .music-pill { padding: 6px 16px 6px 6px; }
     .music-icon-circle { width: 36px; height: 36px; font-size: 0.9rem; }
