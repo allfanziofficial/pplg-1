@@ -249,9 +249,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Daftar lagu dari folder lokal music/
     const songs = [
-        { title: 'Lofi Study', src: 'music/lofi-study.mp3' },
+        { title: 'Kaweni Merry', src: 'music/lofi-study.mp3' },
         { title: 'Coding Vibes', src: 'music/coding-vibes.mp3' },
-        { title: 'Focus Mode', src: 'music/focus-mode.mp3' },
+        { title: 'Breakbeat', src: 'music/focus-mode.mp3' },
         { title: 'Chill Beats', src: 'music/chill-beats.mp3' }
     ];
     let currentSong = 0;
