@@ -388,4 +388,5 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c 10 PPLG 1 ', 'background: linear-gradient(135deg, #008B8B, #00CED1); color: #fff; font-size: 24px; font-weight: bold; padding: 10px 20px; border-radius: 10px;');
     console.log('%cSMK Negeri 1 Kota Gorontalo', 'color: #008B8B; font-size: 14px;');
     console.log('%cHari Bersama: ' + hariBersama + ' hari', 'color: #00CED1; font-size: 12px;');
+    console.log('%cWebsite dibuat oleh anggota PKS Polresta Gorontalo', 'color: #008B8B; font-size: 11px; font-style: italic;');
 });

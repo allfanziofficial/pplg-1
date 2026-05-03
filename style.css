@@ -378,6 +378,283 @@ img { max-width: 100%; height: auto; display: block; }
 @keyframes scroll-wheel { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(12px); } }
 .scroll-text { font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 1px; font-weight: 400; }
 
+
+/* ============================================
+   CREATOR SECTION - Foto Kelas & Pembuat
+   ============================================ */
+.creator-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, var(--gray-50), var(--white));
+    position: relative;
+    overflow: hidden;
+}
+
+.creator-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 139, 139, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.creator-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.creator-wrapper.single {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Foto Kelas */
+.class-photo-box {
+    display: flex;
+    justify-content: center;
+}
+
+.photo-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    background: var(--white);
+    padding: 8px;
+    transition: var(--transition);
+}
+
+.photo-frame:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+}
+
+.class-photo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 14px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+.photo-caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px;
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.photo-caption i {
+    color: var(--toska-primary);
+}
+
+/* Creator Info Card */
+.creator-info-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creator-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+    text-align: center;
+    max-width: 360px;
+    width: 100%;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.creator-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--toska-primary), var(--toska-light));
+}
+
+.creator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 139, 139, 0.15);
+}
+
+/* Creator Photo */
+.creator-photo-wrap {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px;
+}
+
+.creator-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+
+.creator-card:hover .creator-photo {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.creator-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--toska-primary), var(--toska-accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1rem;
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 12px rgba(0, 139, 139, 0.3);
+}
+
+/* Creator Details */
+.creator-details {
+    text-align: center;
+}
+
+.creator-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+}
+
+.creator-age {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin-bottom: 18px;
+}
+
+/* Organization Badge */
+.creator-org {
+    background: linear-gradient(135deg, rgba(0, 139, 139, 0.08), rgba(0, 206, 209, 0.08));
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid rgba(0, 139, 139, 0.15);
+}
+
+.org-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.org-badge i {
+    font-size: 1.2rem;
+    color: var(--toska-primary);
+}
+
+.org-badge span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--toska-dark);
+}
+
+.org-desc {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin: 0;
+}
+
+/* Responsive */
+
+.creator-thanks {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--gray-500);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .creator-section {
+        padding: 40px 0;
+    }
+
+    .creator-wrapper.single {
+        max-width: 100%;
+    }
+
+    .creator-card {
+        padding: 25px;
+        max-width: 100%;
+    }
+
+    .creator-photo-wrap {
+        width: 120px;
+        height: 120px;
+    }
+
+    .creator-name {
+        font-size: 1.2rem;
+    }
+
+    .class-photo {
+        max-width: 100%;
+    }
+
+    .photo-caption {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .creator-card {
+        padding: 20px;
+    }
+
+    .creator-photo-wrap {
+        width: 100px;
+        height: 100px;
+    }
+
+    .creator-badge {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .creator-name {
+        font-size: 1.1rem;
+    }
+
+    .org-badge span {
+        font-size: 0.85rem;
+    }
+}
+
+
 /* STACKING SECTIONS */
 .stack-container { position: relative; }
 .stack-section { position: relative; min-height: auto; display: flex; align-items: center; }
