@@ -598,12 +598,30 @@ img { max-width: 100%; height: auto; display: block; }
     background: var(--white); border-left-color: var(--toska-primary);
     box-shadow: var(--shadow-md); transform: translateX(5px);
 }
-.schedule-time { font-weight: 700; color: var(--toska-primary); font-size: 0.85rem; }
+.schedule-time {
+    font-weight: 700;
+    color: var(--toska-primary);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
 .schedule-subject { font-weight: 600; color: var(--gray-800); font-size: 0.95rem; }
-.schedule-teacher { color: var(--gray-500); font-size: 0.85rem; }
-.schedule-teacher i { color: var(--toska-primary); margin-right: 4px; }
-.schedule-room { color: var(--gray-400); font-size: 0.8rem; }
-.schedule-room i { margin-right: 4px; }
+.schedule-teacher {
+    color: var(--gray-500);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.schedule-teacher i { color: var(--toska-primary); }
+.schedule-room {
+    color: var(--gray-400);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.schedule-room i { color: var(--gray-400); }
 
 /* ========== PIKET SECTION ========== */
 .piket-wrapper { margin-top: 20px; margin-bottom: 60px; }
@@ -783,7 +801,7 @@ img { max-width: 100%; height: auto; display: block; }
 .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
+
     body { padding-bottom: 70px; }
     .navbar { padding: 12px 20px; }
     .navbar.scrolled { padding: 10px 20px; }
@@ -817,7 +835,41 @@ img { max-width: 100%; height: auto; display: block; }
     .about-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .stat-number { font-size: 2.2rem; }
-    .schedule-row { grid-template-columns: 1fr; gap: 8px; padding: 16px; margin-bottom: 8px; }
+
+    /* ===== FIXED SCHEDULE ROWS FOR MOBILE ===== */
+    .schedule-content { padding: 15px; }
+    .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 16px;
+        margin-bottom: 8px;
+    }
+    .schedule-row:hover { transform: translateX(0); }
+    .schedule-time {
+        font-size: 0.9rem;
+        padding-bottom: 6px;
+        border-bottom: 1px dashed var(--gray-200);
+        margin-bottom: 4px;
+    }
+    .schedule-subject {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .schedule-teacher {
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .schedule-room {
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .schedule-list { gap: 10px; }
+    /* ===== END FIXED SCHEDULE ===== */
+
     .members-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .member-card { padding: 20px 10px; }
     .member-avatar { width: 60px; height: 60px; font-size: 1.4rem; }
@@ -843,9 +895,7 @@ img { max-width: 100%; height: auto; display: block; }
     .piket-card { padding: 20px; margin-bottom: 10px; }
     .scroll-indicator-wrapper { bottom: 20px; }
     .back-to-top { bottom: 90px; }
-}
-
-@media (max-width: 480px) {
+ {
     .hero-buttons { flex-direction: column; width: 100%; gap: 10px; }
     .btn { width: 100%; justify-content: center; }
     .section-header { margin-bottom: 35px; }
