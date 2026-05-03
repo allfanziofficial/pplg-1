@@ -23,11 +23,21 @@
     <div class="music-player" id="musicPlayer">
         <button class="music-toggle" id="musicToggle">
             <i class="fas fa-music"></i>
+            <span class="music-wave"></span>
+            <span class="music-wave"></span>
+            <span class="music-wave"></span>
         </button>
         <div class="music-panel" id="musicPanel">
             <div class="music-info">
                 <span class="music-title">Lofi Study</span>
-                <span class="music-status" id="musicStatus">Paused</span>
+                <span class="music-status" id="musicStatus">Click to play</span>
+            </div>
+            <div class="music-visualizer">
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
+                <div class="visualizer-bar"></div>
             </div>
             <div class="music-controls">
                 <button id="prevBtn"><i class="fas fa-backward"></i></button>
@@ -37,6 +47,11 @@
             <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
         </div>
     </div>
+
+    <!-- Audio Element (Hidden) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop">
@@ -77,17 +92,17 @@
                 <i class="fas fa-star"></i> Kelas 10 PPLG 1
             </div>
             <h1 class="hero-title">
-                <span class="title-line">Rekayasa Perangkat</span>
-                <span class="title-line highlight">Lunak dan Gim</span>
+                <span class="title-line" data-text="Rekayasa Perangkat">Rekayasa Perangkat</span>
+                <span class="title-line highlight" data-text="Lunak dan Gim">Lunak dan Gim</span>
             </h1>
             <p class="hero-desc">
                 SMK Negeri 1 Contoh | Jl. Pendidikan No. 123
             </p>
             <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">
+                <a href="#about" class="btn btn-primary magnetic-btn">
                     <i class="fas fa-rocket"></i> Jelajahi
                 </a>
-                <a href="#members" class="btn btn-secondary">
+                <a href="#members" class="btn btn-secondary magnetic-btn">
                     <i class="fas fa-users"></i> Anggota Kelas
                 </a>
             </div>
@@ -101,7 +116,9 @@
     </section>
 
     <!-- About Section -->
-    <section class="about section-white" id="about">
+    <section class="about section-white curtain-section" id="about">
+        <div class="curtain curtain-left"></div>
+        <div class="curtain curtain-right"></div>
         <div class="container">
             <div class="section-header scroll-reveal">
                 <span class="section-tag">Tentang Kami</span>
@@ -184,7 +201,9 @@
     </section>
 
     <!-- Schedule Section -->
-    <section class="schedule-section section-white" id="schedule">
+    <section class="schedule-section section-white curtain-section" id="schedule">
+        <div class="curtain curtain-left"></div>
+        <div class="curtain curtain-right"></div>
         <div class="container">
             <div class="section-header scroll-reveal">
                 <span class="section-tag">Jadwal Pelajaran</span>
@@ -302,7 +321,9 @@
     </section>
 
     <!-- Members Section -->
-    <section class="members-section" id="members">
+    <section class="members-section curtain-section" id="members">
+        <div class="curtain curtain-left"></div>
+        <div class="curtain curtain-right"></div>
         <div class="container">
             <div class="section-header scroll-reveal">
                 <span class="section-tag">Anggota Kelas</span>
@@ -426,7 +447,9 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-section section-white" id="gallery">
+    <section class="gallery-section section-white curtain-section" id="gallery">
+        <div class="curtain curtain-left"></div>
+        <div class="curtain curtain-right"></div>
         <div class="container">
             <div class="section-header scroll-reveal">
                 <span class="section-tag">Galeri</span>
@@ -507,6 +530,11 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="wave-container">
+            <svg class="wave" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#0f172a"/>
+            </svg>
+        </div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
